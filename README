@@ -14,3 +14,8 @@ app.vue
 │  (pages/index.vue, etc.)    │
 │                             │
 └─────────────────────────────┘
+
+ Les  commandes dans l'ordre :
+npm install — télécharger les dépendances (à faire une seule fois)
+npm run dev — lancer le serveur de développement
+Ensuite ouvre ton navigateur sur http://localhost:3000
