@@ -1,17 +1,25 @@
 app.vue 
 
 ┌─────────────────────────────┐
-│  AlertBanner                │  ← banda roja "Perturbaciones G7"
+│  AlertBanner                │  ← bande rouge  "Perturbaciones G7"
 ├─────────────────────────────┤
 │  TopBar                     │  ← Passagers / Professionnels / FR|EN
 ├─────────────────────────────┤
-│  AppHeader                  │  ← Logo + navegación + iconos
+│  AppHeader                  │  ← Logo + navegation + iconos
 ├─────────────────────────────┤
-│  CategoryFilters            │  ← pills Plage, Nature, Romántico...
+│  CategoryFilters            │  ← pills Plage, Nature, Romántic...
 ├─────────────────────────────┤
 │                             │
 │  NuxtPage                   │  ← contenu qui change selon la page affichée
+<<<<<<< HEAD
 
+=======
+>>>>>>> 45c8a7760611c91b705c3ab611162929a1d8cc3c
 │  (pages/index.vue, etc.)    │
 │                             │
 └─────────────────────────────┘
+
+ Les  commandes dans l'ordre :
+npm install — télécharger les dépendances (à faire une seule fois)
+npm run dev — lancer le serveur de développement
+Ensuite ouvre ton navigateur sur http://localhost:3000
