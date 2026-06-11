@@ -10,7 +10,7 @@ app.vue
 │  CategoryFilters            │  ← pills Plage, Nature, Romántico...
 ├─────────────────────────────┤
 │                             │
-│  NuxtPage                   │  ← contenido que cambia según la ruta
+│  NuxtPage                   │  ← contenu qui change selon la page affichée
 │  (pages/index.vue, etc.)    │
 │                             │
 └─────────────────────────────┘
