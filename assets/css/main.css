@@ -1,0 +1,27 @@
+:root {
+  --navy: #0a2240;
+  --blue: #1a5fa8;
+  --blue-light: #2e7fd4;
+  --red: #c8102e;
+  --white: #ffffff;
+  --gray-bg: #f4f6f9;
+  --gray-border: #dde2ea;
+  --gray-text: #6b7a8d;
+  --text: #1a2533;
+  --font: 'Inter', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font);
+  color: var(--text);
+  background: var(--white);
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { text-decoration: none; color: inherit; }
+button { font-family: var(--font); cursor: pointer; border: none; background: none; }
+img { display: block; max-width: 100%; }
