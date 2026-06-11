@@ -3,6 +3,7 @@
     <AlertBanner />
     <TopBar />
     <AppHeader />
+    <CategoryFilters />
     <NuxtPage />
   </div>
 </template>
