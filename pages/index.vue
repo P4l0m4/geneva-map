@@ -38,6 +38,8 @@
               :destination="dest"
               :highlighted="selected?.id === dest.id"
               @select="selected = dest"
+              @mouseover="hovered = dest"
+              @mouseleave="hovered = null"
             />
           </TransitionGroup>
         </template>
@@ -48,6 +50,7 @@
         <WorldMap
           :destinations="destinations ?? []"
           :highlighted="selected"
+          :hovered="hovered"
           @select="selected = $event"
         />
       </div>
@@ -67,6 +70,7 @@ import type { Destination } from '~/composables/useDestinations'
 const { destinations, pending, error, allTags } = useDestinations()
 const activeTag = ref<string | null>(null)
 const selected = ref<Destination | null>(null)
+const hovered = ref<Destination | null>(null)
 
 const filtered = computed(() => {
   if (!destinations.value) return []
@@ -81,18 +85,19 @@ async function refresh() {
 </script>
 
 <style scoped>
-.page { background: var(--gray-bg); min-height: calc(100vh - 106px); }
+.page { background: var(--gray-bg); min-height: calc(100vh - 106px); width: 100%; }
 
 .content {
   max-width: 1280px; margin: 0 auto;
   padding: 24px 32px;
-  display: grid;
-  grid-template-columns: 480px 1fr;
+  display: flex;
   gap: 24px;
-  align-items: start;
+  align-items: flex-start;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.list-col { display: flex; flex-direction: column; gap: 12px; }
+.list-col { display: flex; flex-direction: column; gap: 12px; flex-shrink: 0; }
 
 .list-header {
   display: flex; align-items: baseline; gap: 8px;
@@ -125,6 +130,8 @@ async function refresh() {
   position: sticky; top: 80px;
   border-radius: 12px; overflow: hidden;
   box-shadow: 0 2px 16px rgba(10,34,64,.1);
+  flex: 1;
+  min-width: 200px;
 }
 
 /* List transition */
