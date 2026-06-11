@@ -101,11 +101,11 @@ Le state partagé expose une propriété `hoveredIata: string | null`.
 - [Amadeus Self-Service API](https://developers.amadeus.com/) — prix vols (gratuit en sandbox)
 =======
 ┌─────────────────────────────┐
-│  AlertBanner                │  ← bande rouge "Perturbaciones G7"
+│  AlertBanner                │  ← bande rouge "Perturbations  G7"
 ├─────────────────────────────┤
 │  TopBar                     │  ← Passagers / Professionnels / FR|EN
 ├─────────────────────────────┤
-│  AppHeader                  │  ← Logo + navegación + iconos
+│  AppHeader                  │  ← Logo + navegation + iconos
 ├─────────────────────────────┤
 │  CategoryFilters            │  ← pills Plage, Nature, Romántico...
 ├─────────────────────────────┤
