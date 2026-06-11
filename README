@@ -11,7 +11,6 @@ app.vue
 ├─────────────────────────────┤
 │                             │
 │  NuxtPage                   │  ← contenu qui change selon la page affichée
-
 │  (pages/index.vue, etc.)    │
 │                             │
 └─────────────────────────────┘
