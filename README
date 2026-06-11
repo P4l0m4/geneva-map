@@ -11,10 +11,6 @@ app.vue
 ├─────────────────────────────┤
 │                             │
 │  NuxtPage                   │  ← contenu qui change selon la page affichée
-<<<<<<< HEAD
-
-=======
->>>>>>> 45c8a7760611c91b705c3ab611162929a1d8cc3c
 │  (pages/index.vue, etc.)    │
 │                             │
 └─────────────────────────────┘
