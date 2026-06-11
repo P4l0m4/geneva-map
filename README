@@ -115,3 +115,9 @@ Le state partagé expose une propriété `hoveredIata: string | null`.
 │                             │
 └─────────────────────────────┘
 >>>>>>> parent of 72eabc1 (structure de l´ application)
+
+Pour ouvrir l´application 
+npm install
+npm run dev
+Acceder a l´application
+http://localhost:3000
