@@ -1,16 +1,100 @@
-app.vue 
+# GVA Travel Match — Résumé d'analyse front-end
 
-┌─────────────────────────────┐
-│  AlertBanner                │  ← bande rouge  "Perturbaciones G7"
-├─────────────────────────────┤
-│  TopBar                     │  ← Passagers / Professionnels / FR|EN
-├─────────────────────────────┤
-│  AppHeader                  │  ← Logo + navegation + iconos
-├─────────────────────────────┤
-│  CategoryFilters            │  ← pills Plage, Nature, Romántic...
-├─────────────────────────────┤
-│                             │
-│  NuxtPage                   │  ← contenu qui change selon la page affichée
-│  (pages/index.vue, etc.)    │
-│                             │
-└─────────────────────────────┘
+## Contexte
+
+Refonte front-end de la page [Travel Match de Genève Aéroport](https://www.gva.ch/fr/passagers/vols-et-destinations/destinations/travel-match-resa-billets).  
+Équipe : 3 devs. Périmètre : carte interactive, hover avec prix, filtres, liste des destinations.
+
+---
+
+## Architecture technique
+
+La page originale est une **SPA rendue côté client** (React ou Vue, intégré dans Adobe Experience Manager). Le HTML brut ne contient aucune donnée — tout est injecté via JavaScript.
+
+### Sources de données
+
+| Source | Rôle | Accès |
+|---|---|---|
+| **GVA Flight API** | Routes, compagnies, fréquences | `portal.api.gva.ch` — compte gratuit |
+| **Agrégateur prix** | Prix min en temps réel | Amadeus Self-Service ou mock statique |
+| **Tuiles cartographiques** | Fond de carte | Mapbox GL JS (clé gratuite) ou Leaflet + OSM |
+
+### Modèle de données — objet `Destination`
+
+```typescript
+interface Destination {
+  iata: string          // "BCN"
+  city: string          // "Barcelone"
+  country: string       // "Espagne"
+  lat: number
+  lng: number
+  price_min: number     // en CHF
+  duration_min: number  // en minutes
+  airlines: string[]    // ["easyJet", "Vueling"]
+  direct: boolean
+  continent: string     // "Europe"
+  tags: string[]        // ["plage", "city break"]
+}
+```
+
+---
+
+## Composants à développer
+
+### 1. Carte interactive
+- Bibliothèque : Mapbox GL JS ou Leaflet
+- Centrage initial : GVA (`lat: 46.2, lng: 6.1`)
+- Markers cliquables sur chaque destination
+- **Tooltip au hover** : `"Barcelone — dès CHF 89"`
+- Au clic sur un marker → synchronise la liste gauche
+
+### 2. Panneau gauche — liste des destinations
+- Cards scrollables, triées par prix croissant
+- Chaque card : ville, pays, prix min, compagnie, durée
+- Au hover d'une card → surbrillance du marker correspondant sur la carte
+
+### 3. Barre de filtres
+- **Continent** : multi-select (Europe, Afrique, Moyen-Orient…)
+- **Budget max** : slider (0–500 CHF)
+- **Vol direct uniquement** : toggle
+- **Type de voyage** : chips multi-select (plage, montagne, culture, city break)
+- Filtrage en temps réel via le state partagé
+
+---
+
+## Répartition des tâches
+
+| Dev | Périmètre |
+|---|---|
+| **Dev 1** | Typage TypeScript, appel API GVA, mock JSON ~50 destinations, store partagé |
+| **Dev 2** | Carte (Mapbox/Leaflet), markers, tooltip hover, synchronisation avec le state |
+| **Dev 3** | Panneau liste gauche, composant FilterBar, chips, slider budget |
+
+> Dev 2 et Dev 3 peuvent démarrer sur le **mock JSON** fourni par Dev 1 sans attendre l'API réelle.
+
+---
+
+## Synchronisation liste ↔ carte
+
+Le state partagé expose une propriété `hoveredIata: string | null`.  
+- Hover sur une card → `hoveredIata = "BCN"` → le marker Barcelone passe en surbrillance  
+- Hover sur un marker → `hoveredIata = "BCN"` → la card Barcelone se met en évidence  
+
+---
+
+## Points de décision à aligner
+
+- **Bibliothèque carte** : Mapbox GL JS (plus fidèle à l'original, clé API gratuite) vs Leaflet + OSM (100% gratuit, plus simple)
+- **Source des prix** : mock statique (prototype rapide) vs Amadeus Self-Service (plus réaliste)
+- **Framework** : React avec Zustand/Context ou Vue avec Pinia — à choisir en équipe
+- **Déploiement** : le widget doit fonctionner en standalone ou s'intégrer dans un CMS existant ?
+
+---
+
+## Ressources utiles
+
+- [GVA Developer Portal](https://portal.api.gva.ch) — API vols publique
+- [FlightConnections GVA](https://www.flightconnections.com/fr/vols-au-d%C3%A9part-de-gen%C3%A8ve-gva) — liste des ~149 destinations pour le mock
+- [Mapbox GL JS docs](https://docs.mapbox.com/mapbox-gl-js/)
+- [Leaflet.js](https://leafletjs.com/)
+- [Amadeus Self-Service API](https://developers.amadeus.com/) — prix vols (gratuit en sandbox)
