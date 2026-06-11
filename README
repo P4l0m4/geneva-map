@@ -1,5 +1,6 @@
 # GVA Travel Match — Résumé d'analyse front-end
 
+<<<<<<< HEAD
 ## Contexte
 
 Refonte front-end de la page [Travel Match de Genève Aéroport](https://www.gva.ch/fr/passagers/vols-et-destinations/destinations/travel-match-resa-billets).  
@@ -98,3 +99,19 @@ Le state partagé expose une propriété `hoveredIata: string | null`.
 - [Mapbox GL JS docs](https://docs.mapbox.com/mapbox-gl-js/)
 - [Leaflet.js](https://leafletjs.com/)
 - [Amadeus Self-Service API](https://developers.amadeus.com/) — prix vols (gratuit en sandbox)
+=======
+┌─────────────────────────────┐
+│  AlertBanner                │  ← banda roja "Perturbaciones G7"
+├─────────────────────────────┤
+│  TopBar                     │  ← Passagers / Professionnels / FR|EN
+├─────────────────────────────┤
+│  AppHeader                  │  ← Logo + navegación + iconos
+├─────────────────────────────┤
+│  CategoryFilters            │  ← pills Plage, Nature, Romántico...
+├─────────────────────────────┤
+│                             │
+│  NuxtPage                   │  ← contenido que cambia según la ruta
+│  (pages/index.vue, etc.)    │
+│                             │
+└─────────────────────────────┘
+>>>>>>> parent of 72eabc1 (structure de l´ application)
