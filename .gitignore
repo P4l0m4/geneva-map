@@ -1,8 +1,8 @@
-
 echo "node_modules/
 .nuxt/
 .output/
 dist/
 .env
 .env.local
+node_modules/
 *.log" > .gitignore

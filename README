@@ -114,7 +114,7 @@ Le state partagé expose une propriété `hoveredIata: string | null`.
 │  (pages/index.vue, etc.)    │
 │                             │
 └─────────────────────────────┘
->>>>>>> parent of 72eabc1 (structure de l´ application)
+
 
 Pour ouvrir l´application 
 npm install
