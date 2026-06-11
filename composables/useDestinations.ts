@@ -3,16 +3,10 @@
 const TAG_MAP: Record<number, string> = {
   1:  'Plage',
   2:  'Romantique',
-  5:  'Urbain',
-  7:  'Nature',
-  8:  'LGBTQIA+',
-  9:  'Détente',
-  10: 'Culture',
-  11: 'Vie nocturne',
-  12: 'Aventure',
-  24: 'Gastronomie',
-  68: 'Famille',
-  69: 'Shopping',
+  3:  'Nature',
+  4:  'Détente',
+  5:  'Culture',
+  6:  'Vie nocturne',
 }
 
 export interface Destination {

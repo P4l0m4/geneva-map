@@ -1,4 +1,5 @@
 <template>
+  
   <div class="page">
     <!-- Filters -->
     <CategoryFilters
@@ -7,8 +8,10 @@
     />
 
     <div class="content">
+     
       <!-- Left: list -->
       <aside class="list-col">
+     
         <!-- Stats bar -->
         <div class="list-header">
           <span class="list-count">
@@ -44,6 +47,7 @@
       </aside>
 
       <!-- Right: map -->
+     
       <div class="map-col">
         <WorldMap
           :destinations="destinations ?? []"
@@ -52,6 +56,7 @@
         />
       </div>
     </div>
+    
 
     <!-- Detail panel -->
     <DestinationPanel
