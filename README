@@ -1,13 +1,13 @@
 app.vue 
 
 ┌─────────────────────────────┐
-│  AlertBanner                │  ← banda roja "Perturbaciones G7"
+│  AlertBanner                │  ← bande rouge  "Perturbaciones G7"
 ├─────────────────────────────┤
 │  TopBar                     │  ← Passagers / Professionnels / FR|EN
 ├─────────────────────────────┤
-│  AppHeader                  │  ← Logo + navegación + iconos
+│  AppHeader                  │  ← Logo + navegation + iconos
 ├─────────────────────────────┤
-│  CategoryFilters            │  ← pills Plage, Nature, Romántico...
+│  CategoryFilters            │  ← pills Plage, Nature, Romántic...
 ├─────────────────────────────┤
 │                             │
 │  NuxtPage                   │  ← contenu qui change selon la page affichée
